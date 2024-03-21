@@ -7,7 +7,6 @@ public class FireballCaster : MonoBehaviour
     public FireballScript fireballPrefab;
     
     public Transform fireballSourceTransform;
-
     
     private void Update()
     {

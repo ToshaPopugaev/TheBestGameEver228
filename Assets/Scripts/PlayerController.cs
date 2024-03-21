@@ -5,10 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
  public float gravity = 9.8f;
+
  private float _fallVelocity = 0;
+
  public float jumpForce;
+
  private CharacterController _characterController;
+
  public float speed;
+
  private Vector3 _moveVector;
    
     void Start()

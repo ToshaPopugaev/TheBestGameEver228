@@ -10,21 +10,29 @@ public class FireballSource : MonoBehaviour
 
     public float targetInSkyDistance;
 
-    private void Uptade()
-    {
-    var ray = cameraLink.ViewportPointToRay(new Vector3(0.5f, 0.7f, 0));
+    private void Update()
+     {
+     var ray = cameraLink.ViewportPointToRay(new Vector3(0.5f, 0.7f, 0));
+      
+     RaycastHit hit;
 
-    RaycastHit hit;
-
-    if(Physics.Raycast(ray, out hit))
-    {
+     if(Physics.Raycast(ray, out hit))
+     {
         targetPoint.position = hit.point;
-    }
-    else
-    {
+     }
+     else
+     {
         targetPoint.position = ray.GetPoint(targetInSkyDistance);
-    }
+     }
 
-    transform.LookAt(targetPoint.position);
+     transform.LookAt(targetPoint.position);
      }    
+
+
+     private void Start()
+     {
+      Cursor.lockState = CursorLockMode.Locked;
+ 
+      Cursor.visible = false;
+     }
 }
