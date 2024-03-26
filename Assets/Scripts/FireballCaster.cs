@@ -7,12 +7,16 @@ public class FireballCaster : MonoBehaviour
     public FireballScript fireballPrefab;
     
     public Transform fireballSourceTransform;
+
+    public float damage = 10;
     
     private void Update()
     {
         if(Input.GetMouseButtonDown(0))
         {
-         Instantiate(fireballPrefab, fireballSourceTransform.position, fireballSourceTransform.rotation);
+         var fireball = Instantiate(fireballPrefab, fireballSourceTransform.position, fireballSourceTransform.rotation);
+
+         fireball.damage = damage;
         }
     }
 }

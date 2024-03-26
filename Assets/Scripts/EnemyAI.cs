@@ -18,6 +18,13 @@ public class EnemyAI : MonoBehaviour
 
    public float damage = 30;
 
+   public EnemyHealth _enemyHealth;
+
+   public bool IsAlive()
+   {
+     return _enemyHealth.IsAlive();
+   }
+
    private void Start()
    {
       InitComponentLinks();
@@ -29,6 +36,8 @@ public class EnemyAI : MonoBehaviour
         _navMeshAgent = GetComponent<NavMeshAgent>();
 
         _playerHealth = player.GetComponent<PlayerHealth>();
+
+        _enemyHealth = GetComponent<EnemyHealth>();
    }
 
    private void Update() 
@@ -98,5 +107,3 @@ public class EnemyAI : MonoBehaviour
     }
    }
   }
-  
-  

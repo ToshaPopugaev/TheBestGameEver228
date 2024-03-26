@@ -14,6 +14,8 @@ public class PlayerHealth : MonoBehaviour
 
     private float _maxValue;
 
+    public Animator animator;
+
     private void Start()
     {
         _maxValue = value;
@@ -33,6 +35,15 @@ public class PlayerHealth : MonoBehaviour
 
     }
 
+    public void AddHealth(float amount)
+    {
+        value += amount;
+
+        value = Mathf.Clamp(value, 0, _maxValue);
+
+        DrawHealthBar();
+    }
+
     private void PlayerIsDead()
     {
       gameplayUI.SetActive(false);
@@ -44,6 +55,8 @@ public class PlayerHealth : MonoBehaviour
       GetComponent<FireballCaster>().enabled = false;
 
       GetComponent<CameraRotation>().enabled = false;
+
+      animator.SetTrigger("Death");
     }
 
     private void DrawHealthBar()

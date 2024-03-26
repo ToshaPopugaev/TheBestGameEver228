@@ -8,7 +8,7 @@ public class FireballScript : MonoBehaviour
     public float speed;
     public float damage = 10;
     public float lifetime;
-    public FireballScript fireballPrefab;
+
 
     void FixedUpdate()
     {
